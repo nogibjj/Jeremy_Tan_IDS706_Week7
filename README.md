@@ -1,4 +1,4 @@
-[![CI](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week6/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week6/actions/workflows/cicd.yml)
+[![CI](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week7/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week7/actions/workflows/cicd.yml)
 ## Jeremy_Tan_IDS706_Week7
 ### File Structure
 ```
@@ -32,14 +32,16 @@ Jeremy_Tan_IDS706_Week7/
 └── user_guide.md
 ```
 ## Purpose of project
-The goal of this project is to create an ETL-Query pipeline utilizing a cloud service like Databricks. This pipeline will involve tasks such as extracting data from FiveThirtyEight's public datasets, cleaning and transforming the data, then loading it into Databricks SQL Warehouse. Once the data is in place, we'll be able to run complex queries that may involve tasks like joining tables, aggregating data, and sorting results. This will be accomplished by establishing a database connection to Databricks. 
+The goal of this project is to create an ETL-Query pipeline utilizing a cloud service like Databricks AND create an executable by packaging the project. This pipeline will involve tasks such as extracting data from FiveThirtyEight's public datasets, cleaning and transforming the data, then loading it into Databricks SQL Warehouse. Once the data is in place, we'll be able to run complex queries that may involve tasks like joining tables, aggregating data, and sorting results. This will be accomplished by establishing a database connection to Databricks. You can find the user guide [here](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week7/blob/main/user_guide.md)
+
 ## Preparation
 1. open codespaces 
 2. wait for container to be built and virtual environment to be activated with requirements.txt installed 
 3. make your own .env file to store your Databricks' secrets as it requires a conncection to be established to Databricks
-3. extract: run `make extract`
-4. transform and load: run `make transform_load`
-4. query: run `make query` or alternatively write your own query using `etl-query general_query <insert query>`
+4. build packaged project by running `make setup_package`
+5. extract: run `make extract`
+6. transform and load: run `make transform_load`
+7. query: run `make query` or alternatively write your own query using `etl_query general_query <insert query>`
 
 ## Complex Query
 Explanations of query:

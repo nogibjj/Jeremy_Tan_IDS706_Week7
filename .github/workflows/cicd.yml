@@ -1,11 +1,12 @@
 name: CI
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
-
+    branches:
+      - main
+  workflow_dispatch: null
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,14 +19,14 @@ jobs:
           echo "ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }}" >> $GITHUB_ENV
       - name: install packages
         run: make install
-      - name: setup local pacakge 
+      - name: install local package
         run: make setup_package
       - name: lint
         run: make lint
-      - name: extract 
-        run: make extract 
+      - name: extract
+        run: make extract
       - name: transform_load
-        run: make transform_load 
+        run: make transform_load
       - name: query
         run: make query
       - name: test
@@ -36,4 +37,3 @@ jobs:
         run: make generate_and_push
       - name: deploy
         run: make deploy
-      

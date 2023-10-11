@@ -19,7 +19,7 @@ By doing so, we can now run the project as an executable via `etl_query`
 To run the ETL-Query script, use the following command:
 
 ```bash
-python etl_query <action> 
+etl_query <action> 
 ```
 
 ### Available Actions
@@ -35,7 +35,7 @@ The script supports the following actions:
 ### Extract Data
 
 ```bash
-python etl_query extract
+etl_query extract
 ```
 
 This command will extract data.
@@ -43,7 +43,7 @@ This command will extract data.
 ### Transform and Load Data
 
 ```bash
-python etl_query transform_load
+etl_query transform_load
 ```
 
 This command will transform and load data.
@@ -51,7 +51,7 @@ This command will transform and load data.
 ### Execute General Query
 
 ```bash
-python etl_query general_query <query>
+etl_query general_query <query>
 ```
 
 Replace `<query>` with the specific query you want to execute.

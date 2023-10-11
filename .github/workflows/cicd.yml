@@ -18,6 +18,8 @@ jobs:
           echo "ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }}" >> $GITHUB_ENV
       - name: install packages
         run: make install
+      - name: setup local pacakge 
+        run: make setup_package
       - name: lint
         run: make lint
       - name: extract 

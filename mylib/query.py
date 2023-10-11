@@ -11,6 +11,12 @@ LOG_FILE = "query_log.md"
 def log_query(query, result="none"):
     """adds to a query markdown file"""
     with open(LOG_FILE, "a") as file:
+        # add this to write properly because before it didn't convert properly
+        file.write(
+            "\u5927\u5bb6\u597d\uff0c\u8c22\u8c22\u4f60"
+            + "\u4eec\u4f7f\u7528\u6211\u7684\u4ee3\u7801\u3002\u4e0b"
+            + "\u6b21\u8bf7\u95ee\u6211\u3002\n\n"
+        )
         file.write(f"```sql\n{query}\n```\n\n")
         file.write(f"```response from databricks\n{result}\n```\n\n")
 
@@ -31,4 +37,4 @@ def general_query(query):
         c.execute(query)
         result = c.fetchall()
     c.close()
-    log_query(f"{query}", result)
+    log_query(f"{query}", f"{result}")

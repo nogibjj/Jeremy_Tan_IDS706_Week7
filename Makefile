@@ -23,7 +23,7 @@ all: install lint test format deploy
 
 generate_and_push:
 	# Create the markdown file 
-	python test_main.py  # Replace with the actual command to generate the markdown
+	python test_main.py 
 
 	# Add, commit, and push the generated files to GitHub
 	@if [ -n "$$(git status --porcelain)" ]; then \
@@ -37,10 +37,13 @@ generate_and_push:
 	fi
 
 extract:
-	python main.py extract
+	etl-query extract
 
 transform_load: 
-	python main.py transform_load
+	etl-query transform_load
 
 query:
-	python main.py general_query "SELECT t1.server, t1.opponent, AVG(t1.seconds_before_next_point) as avg_seconds_before_next_point, COUNT(*) as total_matches_played FROM default.servetimesdb t1 JOIN default.eventtimesdb t2 ON t1.id = t2.id GROUP BY t1.server, t1.opponent ORDER BY total_matches_played DESC LIMIT 10"
+	etl-query general_query "SELECT t1.server, t1.opponent, AVG(t1.seconds_before_next_point) as avg_seconds_before_next_point, COUNT(*) as total_matches_played FROM default.servetimesdb t1 JOIN default.eventtimesdb t2 ON t1.id = t2.id GROUP BY t1.server, t1.opponent ORDER BY total_matches_played DESC LIMIT 10"
+
+setup_package: 
+	python setup.py develop

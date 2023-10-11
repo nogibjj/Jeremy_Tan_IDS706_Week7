@@ -47,13 +47,13 @@ The goal of this project is to create an ETL-Query pipeline utilizing a cloud se
 Explanations of query:
 ```sql
 SELECT t1.server, t1.opponent,
-        AVG(t1.seconds_before_next_point) as avg_seconds_before_next_point,
-        COUNT(*) as total_matches_played
-    FROM default.servetimesdb t1
-    JOIN default.eventtimesdb t2 ON t1.id = t2.id
-    GROUP BY t1.server, t1.opponent
-    ORDER BY total_matches_played DESC
-    LIMIT 10
+    AVG(t1.seconds_before_next_point) as avg_seconds_before_next_point,
+    COUNT(*) as total_matches_played
+FROM default.servetimesdb t1
+JOIN default.eventtimesdb t2 ON t1.id = t2.id
+GROUP BY t1.server, t1.opponent
+ORDER BY total_matches_played DESC
+LIMIT 10
 ```
 The query retrieves data from two tables (default.servetimesdb and default.eventtimesdb), performs an **inner join** based on the id column, **calculates the average and count** for each unique combination of server and opponent, **orders the results by total_matches_played in descending order**, and limits the output to the top 10 rows. This query can help identify the most played matches grouped by the combination of server and opponent. You can see the results [here](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week6/blob/main/query_log.md) or here:
 
